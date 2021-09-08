@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta content="IE=edge" http-equiv="X-UA-Compatible">
+  <meta content="width=device-width,initial-scale=1" name="viewport">
+  <meta content="description" name="description">
+  <meta name="google" content="notranslate" />
+  <meta content="Mashup templates have been developped by Orson.io team" name="author">
+
+  <!-- Disable tap highlight on IE -->
+  <meta name="msapplication-tap-highlight" content="no">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="./static/assets/apple-icon-180x180.png">
+  <link href="./static/assets/favicon.ico" rel="icon">
+
+  <title>Title page</title>
+
+<link href="./static/main.3f6952e4.css" rel="stylesheet"></head>
+
+<body class="">
+<div id="site-border-left"></div>
+<div id="site-border-right"></div>
+<div id="site-border-top"></div>
+<div id="site-border-bottom"></div>
+<!-- Add your content of header -->
+<header>
+  <nav class="navbar  navbar-fixed-top navbar-default">
+    <div class="container">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse" aria-expanded="false">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+
+      <div class="collapse navbar-collapse" id="navbar-collapse">
+        <ul class="nav navbar-nav ">
+          <li><a href="./index.html" title="">01 : Home</a></li>
+          <li><a href="./works.html" title="">02 : Works</a></li>
+          <li><a href="./about.html" title="">03 : About me</a></li>
+          <li><a href="./contact.html" title="">04 : Contact</a></li>
+        </ul>
+
+
+        <ul class="nav navbar-nav navbar-right navbar-small visible-md visible-lg">
+          <li><a href="./work1.html" title="" class="active">001</a></li>
+          <li><a href="https://www.kaggle.com/aaysbt/house-price-eda-model-predictions" title="">002</a></li>
+          <li><a href="https://www.kaggle.com/aaysbt/titanic-datasets-eda-fe-dc-model-predictions" title="">003</a></li>
+          <li><a href="./work2.html" title="">004</a></li>
+          <li><a href="https://medium.com/my-data-camp-journey/predictive-analysis-in-python-97ca5b64e97f" title="">005</a></li>
+          <li><a href="https://medium.com/my-data-camp-journey/preprocessing-data-for-logistic-regression-f311c937d765:wq" title="">006</a></li>
+        </ul>
+
+
+      </div>
+    </div>
+  </nav>
+</header>
+<div class="section-container">
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12">
+        <img src="./assets/images/in_4_1.jpeg" class="img-responsive" alt="">
+        <div class="card-container">
+          <div class="text-center">
+            <h1 class="h2">Investigating TMDB Movie Datasets</h1>
+          </div>
+          <p>
+            In this story, I will investigate the TMDB movies dataset which is collected between 1960 to 2015 with the information of title, budget, revenue, cast, director, genres, release date, release year, runtime, etc …
+          </p>
+          <p>The primary goal of the project is making the exploratory data analysis using numpy, pandas, seaborn and matplotlib library. For this, we need the clean the data first. Previously, we should ask a question and find the answers inside this datasets. So, this purpose will help us with the cleaning process.</p>
+
+          <br>
+
+          <p>
+            The original data source comes from <a href="https://www.kaggle.com/juzershakir/tmdb-movies-dataset/home" target="_blank">Kaggle.</a>
+          </p>
+
+          <h3>Questions to be Answered</h3>
+          <p>
+            <i>
+            What are all times highest and lowest profit movie? <br>
+            What is all times top 10 movies which earn the highest profit? <br>
+            What are the highest profit movie and the total profit for each year? <br>
+            What is the all times highest and lowest budget movie? <br>
+            What is all times top 10 movies which have the highest budget? <br>
+            What are the highest budget movie and the total budget for each year? <br>
+            What is the All times highest and lowest revenue movie? <br>
+            What is all times top 10 movies which have the highest revenue? <br>
+            What are the highest budget movie and the total budget for each year? <br>
+            Which genres most used from 1960 to 2015? <br>
+            Which cast were more filmed? <br>
+            Which director was most filmed? <br>
+            What is the Number of movies released in each month? What is the total profit by month? <br>
+            </i>
+          </p>
+          <h3>Importing the Libraries and Data</h3>
+          <p><script src="https://gist.github.com/aysbt/a6206b72be1442aacc2c6f126290aa64.js"></script></p>
+          <img src="./assets/images/in_4_3.png" alt="dataset information">
+          <br> <br>
+          <ul>
+            <li>There are 10866 columns and 21 columns.</li>
+            <li>"id", "imdb_id" columns are similar column so we can get rid of "imdb_id" column which is not given any useful information for this analysis.</li>
+            <li>“popularity”, “budget”, and “revenue” columns are useful for this analysis and we are going to calculate the profit extract the revenue from the budget column. But previously we need the handle the missing values from budget and revenue column.</li>
+            <li>“original_title”, “cast”, “director” columns have useful information about the movies.</li>
+            <li>“homepage”, “tagline”, “keywords”, “overview”, “vote_average”, “budget_adj”, “revenue_adj” columns are not useful for analysis so these columns could be deleted from the data frame.</li>
+            <li>“release_date”, and “release_year” columns also important. And we need the convert the release_date column to pandas DateTime object.</li>
+          </ul>
+          <h3>Data Cleaning</h3>
+          <ul>
+            <li>Drop the duplicated rows.</li>
+            <li>Replace the values from ‘0’ to ‘NAN’ then, drop the rows which have missing values.</li>
+            <li>Change the format of release date into DateTime format.</li>
+            <li>Delete the unused columns from Data Frame</li>
+            <li>Checking the all columns are in the desired data type.</li>
+            <li>Calculating the profit extracting revenue from the budget.</li>
+          </ul>
+
+          <p><script src="https://gist.github.com/aysbt/2ce07eccc23bfc87cec44d6820f8102b.js"></script></p>
+
+
+          <h3>Exploratory Data Analysis</h3>
+          <p>We will create the function to facilitate the answer the questions before going into exploratory data analysis.</p>
+
+          <p><script src="https://gist.github.com/aysbt/e7387aa19c52d176adbadd8c8564082c.js"></script></p>
+
+          <p>This function is to find out the min and the max value of any given column. So, we can use this function on the budget, revenue, and profit to find out the highest and lowest values for given information.</p>
+
+          <p><script src="https://gist.github.com/aysbt/54808f8e2b001d380a8f9faa2ff30b6f.js"></script></p>
+
+          <p>The top_10 function calculates all times top 10 movies for any given columns, and also plot this information in a bar chart.</p>
+
+
+          <p><script src="https://gist.github.com/aysbt/36efb8c3548dadc3b43f62a37fc01a7a.js"></script></p>
+
+          <p>If we want to find out the total or highest value of any given column (budget, revenue, or profit) for each year separately then we could use the each_year_best function which is defined below. This function will plot the total and highest value of any given column for the last 15 years as default.</p>
+
+          <h4>What are all times highest and lowest profit movie?</h4>
+          <p>
+            <mark><code>find_min_max('profit')</code></mark>
+          </p>
+          <img class="img-responsive" src="./assets/images/in_4_4.png">
+
+          <h4>What is all times top 10 movies which earn the highest profit?</h4>
+          <p>
+            <mark><code>top_10('profit')</code></mark>
+          </p>
+          <img class="img-responsive" src="./assets/images/in_4_5.png">
+
+          <h4>What are the highest profit movie and the total profit for each year?</h4>
+          <p>
+            <mark><code>each_year_best('profit')</code></mark>
+          </p>
+          <img class="img-responsive" src="./assets/images/in_4_6.png">
+
+          <h4>What is the all times highest and lowest budget movie?</h4>
+          <p>
+            <mark><code>find_min_max('budget')</code></mark>
+          </p>
+          <img class="img-responsive" src="./assets/images/in_4_7.png">
+
+          <h4>What is all times top 10 movies which have the highest budget?</h4>
+          <p>
+            <mark><code>top_10('budget'</code></mark>
+          </p>
+          <img  class="img-responsive" src="./assets/images/in_4_8.png">
+
+          <h4> What are the highest budget movie and the total budget for each year?
+          </h4>
+          <p>
+            <mark><code>each_year_best('budget')</code></mark>
+          </p>
+
+          <img class="img-responsive" src="./assets/images/in_4_9.png">
+
+          <p>
+            <mark>Let's write a function to find out the most filmed genres, cast or director</mark>
+          </p>
+
+          <p><script src="https://gist.github.com/aysbt/c62baf4384106f441d4c224d40c24be6.js"></script></p>
+
+          <h4>Which genres was more used from 1960 to 2015?</h4>
+          <mark><code>split_count_data("genres")</code></mark>
+
+          <img class="img-responsive" src="./assets/images/in_4_10.png">
+
+          <h4>Which cast were more filmed?</h4>
+          <p>
+            <mark><code>split_count_data("cast")</code></mark>
+          </p>
+          <img class="img-responsive" src="./assets/images/in_4_11.png">
+
+
+          <h4>Which director was most filmed?</h4>
+          <p>
+            <mark><code>split_count_data("director")</code></mark>
+          </p>
+          <img class="img-responsive" src="./assets/images/in_4_12.png">
+
+          <h4>What is the Number of movies released in each month? What is the total profit by month?</h4>
+
+          <p><script src="https://gist.github.com/aysbt/8e7d8c6b1c439ae9cc6448a4d7bf2735.js"></script></p>
+          <img class="img-responsive" src="./assets/images/in_4_13.png">
+
+          <p><mark>Let’s try the found out if there is any correlation between "profit', 'budget', 'revenue', 'runtime', 'vote_count',  'popularity', 'release_year'</mark></p>
+
+          <p>
+            <mark>
+              <code>
+            df_related= df[['profit','budget','revenue','runtime','vote_count','popularity','release_year']]
+                   sns.pairplot(df_related, kind='reg')
+              </code>
+            </mark>
+          </p>
+          <img class="img-responsive" src="./assets/images/in_4_14.png">
+          <p>
+            <ol>
+              <li><strong>Budget vs Revenue:</strong> Budget and revenue both have a positive correlation between them. Means there is a good possibility that movies with higher investments result in better revenues.</li>
+              <li><strong>Profit Vs Budget:</strong> Profit And Budget both have a positive correlation between them. Means there is a good possibility that movies with higher investments result in better profit.</li>
+              <li><strong>Release Year Vs Vote count:</strong> Release year and vote Average have a negative correlation. Means that movie ratings (vote count) do not depend on the release year.</li>
+              <li><strong>Popularity Vs Profit:</strong> Popularity and profit have a positive correlation. It means that movie with high popularity tends to earn high profit.</li>
+            </ol>
+          </p>
+          <h3>Conclusion</h3>
+          <p>We analysis the TMDB dataset which is collected between 1960 to 2015. Our goal here finding the answer utilizing this dataset. We could summaries this analysis result in the following items.
+            <ol>
+              <li>The most profitable movie is Avatar and filmed in 2009. Star Wars: The Force Awakers is second, and Titanic is the third one.</li>
+              <li>The last profitable movie is The Warrior’s Way and this movie also has the highest budget.</li>
+              <li>The most popular genres was filmed Drama, Comedy, and Action.</li>
+              <li>The most filmed actor was Robert De Niro, Bruce Wills and Samual L. Jackson.</li>
+              <li>The most filmed director was Steven Spielberg, Clint Eastwood, and Ridley Scott.</li>
+              <li>The most filmed production company was Universal Pictures, Waner Bros, and Paramount Pictures.</li>
+              <li>The most profitable mounts are June, December, and May.</li>
+              <li>According to TMDB dataset, all times most popular movies are Jurassic World, Mad Max: Fury Road, and Interstellar.</li>
+              <li>All times most voted movies are Inception, The Avengers and Avatar.</li>
+              <li>Revenue and budget both have a positive correlation between them.</li>
+              <li>There is a high probability that movies with higher investments result in better profit</li>
+            </ol>
+          </p>
+          <p> You may also found this project at my <a href="https://medium.com/my-data-camp-journey/investigating-tmdb-movie-datasets-4ee04c263915" target="_blank" >Medium</a> and also in my <a href="https://www.kaggle.com/aaysbt/investigating-tmdb-movie-datasets" target="_blank" >Kaggle</a>.</p>
+          <p>Follow me on <a href="https://twitter.com/aaysbt">Twitter</a>, <a href="https://www.linkedin.com/in/aysebat/">Linkedin</a> or in<a href="https://medium.com/@aaysbt"> Medium</a>.</p>
+
+
+           </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+
+<footer class="footer-container text-center">
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12">
+        <p>© UNTITLED | Website created with <a href="http://www.mashup-template.com/" title="Create website with free html template">Mashup Template</a>/<a href="https://www.unsplash.com/" title="Beautiful Free Images">Unsplash</a></p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function (event) {
+     navActivePage();
+  });
+</script>
+
+<!-- Google Analytics: change UA-XXXXX-X to be your site's ID
+
+<script>
+  (function (i, s, o, g, r, a, m) {
+    i['GoogleAnalyticsObject'] = r; i[r] = i[r] || function () {
+      (i[r].q = i[r].q || []).push(arguments)
+    }, i[r].l = 1 * new Date(); a = s.createElement(o),
+      m = s.getElementsByTagName(o)[0]; a.async = 1; a.src = g; m.parentNode.insertBefore(a, m)
+  })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
+  ga('create', 'UA-XXXXX-X', 'auto');
+  ga('send', 'pageview');
+</script>
+
+--> <script type="text/javascript" src="./static/main.70a66962.js"></script></body>
+
+</html>
